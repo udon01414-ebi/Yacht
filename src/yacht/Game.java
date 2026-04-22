@@ -8,7 +8,7 @@ public class Game {
 		Panel panel = new Panel();
 		JFrame frame = new JFrame("ヨット");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 500);       //サイズは仮
+		frame.setSize(580, 800);
 		frame.add(panel);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
