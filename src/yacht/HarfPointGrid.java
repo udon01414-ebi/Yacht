@@ -50,7 +50,33 @@ public class HarfPointGrid extends JPanel {
 
 		JLabel goukeiL = new JLabel();
 		
-		btn1 = new ButtonInitialize(1);
+		int value1 = new DiceManager(1).value;
+		int value2 = new DiceManager(2).value;
+		int value3 = new DiceManager(3).value;
+		int value4 = new DiceManager(4).value;
+		int value5 = new DiceManager(5).value;
+		int value6 = new DiceManager(6).value;
+
+		int value9 = new DiceManager(9).value;
+		int value10 = new DiceManager(10).value;
+		int value11 = new DiceManager(11).value;
+		int value12 = new DiceManager(12).value;
+		int value13 = new DiceManager(13).value;
+		int value14 = new DiceManager(14).value;
+		
+		btn1 = new ButtonInitialize(value1);
+		btn2 = new ButtonInitialize(value2);
+		btn3 = new ButtonInitialize(value3);
+		btn4 = new ButtonInitialize(value4);
+		btn5 = new ButtonInitialize(value5);
+		btn6 = new ButtonInitialize(value6);
+
+		btn9 = new ButtonInitialize(value9);
+		btn10 = new ButtonInitialize(value10);
+		btn11 = new ButtonInitialize(value11);
+		btn12 = new ButtonInitialize(value12);
+		btn13 = new ButtonInitialize(value13);
+		btn14 = new ButtonInitialize(value14);
 
 		
 		add(label1);
