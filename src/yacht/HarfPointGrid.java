@@ -2,6 +2,7 @@ package yacht;
 
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -29,6 +30,25 @@ public class HarfPointGrid extends JPanel {
 		JLabel label14 = new JLabel("エース");
 		
 		JLabel label15 = new JLabel("エース");
+		
+		JButton btn1 = new JButton();
+		JButton btn2 = new JButton();
+		JButton btn3 = new JButton();
+		JButton btn4 = new JButton();
+		JButton btn5 = new JButton();
+		JButton btn6 = new JButton();
+
+		JLabel shokeiL = new JLabel();
+		JLabel bonusL = new JLabel();
+
+		JButton btn9 = new JButton();
+		JButton btn10 = new JButton();
+		JButton btn11 = new JButton();
+		JButton btn12 = new JButton();
+		JButton btn13 = new JButton();
+		JButton btn14 = new JButton();
+
+		JLabel goukeiL = new JLabel();
 
 		
 		add(label1);
