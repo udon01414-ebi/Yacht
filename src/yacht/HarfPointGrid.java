@@ -49,6 +49,8 @@ public class HarfPointGrid extends JPanel {
 		JButton btn14 = new JButton();
 
 		JLabel goukeiL = new JLabel();
+		
+		btn1 = new ButtonInitialize(1);
 
 		
 		add(label1);
