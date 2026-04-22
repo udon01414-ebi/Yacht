@@ -2,6 +2,7 @@ package yacht;
 
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -12,23 +13,44 @@ public class HarfPointGrid extends JPanel {
 		setBorder(new EmptyBorder(10, 10, 10, 10));
 		
 		JLabel label1 = new JLabel("エース");
-		JLabel label2 = new JLabel("エース");
-		JLabel label3 = new JLabel("エース");
-		JLabel label4 = new JLabel("エース");
-		JLabel label5 = new JLabel("エース");
-		JLabel label6 = new JLabel("エース");
+		JLabel label2 = new JLabel("デュース");
+		JLabel label3 = new JLabel("トレイ");
+		JLabel label4 = new JLabel("フォー");
+		JLabel label5 = new JLabel("ファイブ");
+		JLabel label6 = new JLabel("シックス");
 
-		JLabel label7 = new JLabel("エース");
-		JLabel label8 = new JLabel("エース");
+		JLabel label7 = new JLabel("小計");
+		JLabel label8 = new JLabel("ボーナス+35");
 		
-		JLabel label9 = new JLabel("エース");
-		JLabel label10 = new JLabel("エース");
-		JLabel label11 = new JLabel("エース");
-		JLabel label12 = new JLabel("エース");
-		JLabel label13 = new JLabel("エース");
-		JLabel label14 = new JLabel("エース");
+		JLabel label9 = new JLabel("チョイス");
+		JLabel label10 = new JLabel("フォーダイス");
+		JLabel label11 = new JLabel("フルハウス");
+		JLabel label12 = new JLabel("S.ストレート");
+		JLabel label13 = new JLabel("B.ストレート");
+		JLabel label14 = new JLabel("ヨット");
 		
-		JLabel label15 = new JLabel("エース");
+		JLabel label15 = new JLabel("総合得点");
+		
+		JButton btn1 = new JButton();
+		JButton btn2 = new JButton();
+		JButton btn3 = new JButton();
+		JButton btn4 = new JButton();
+		JButton btn5 = new JButton();
+		JButton btn6 = new JButton();
+
+		JLabel shokeiL = new JLabel();
+		JLabel bonusL = new JLabel();
+
+		JButton btn9 = new JButton();
+		JButton btn10 = new JButton();
+		JButton btn11 = new JButton();
+		JButton btn12 = new JButton();
+		JButton btn13 = new JButton();
+		JButton btn14 = new JButton();
+
+		JLabel goukeiL = new JLabel();
+		
+		btn1 = new ButtonInitialize(1);
 
 		
 		add(label1);
