@@ -1,16 +1,16 @@
 package yacht;
 
-import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JPanel;
 
 public class PointGrid extends JPanel{
 	PointGrid() {
-		setLayout(new BorderLayout());
+		setLayout(new GridLayout(1, 2));
 		JPanel eastContainer = new HarfPointGrid();
 		JPanel westContainer = new HarfPointGrid();
 		
-		add(eastContainer, BorderLayout.EAST);
-		add(westContainer, BorderLayout.WEST);
+		add(eastContainer);
+		add(westContainer);
 	}
 }

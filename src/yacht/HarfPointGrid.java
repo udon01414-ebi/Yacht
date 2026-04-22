@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class HarfPointGrid extends JPanel {
+	int value1,value2,value3,value4,value5,value6;
+	int value9,value10,value11,value12,value13,value14;
+	
 	HarfPointGrid() {
 		setLayout(new GridLayout(15, 2));
 		setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -50,19 +53,19 @@ public class HarfPointGrid extends JPanel {
 
 		JLabel goukeiL = new JLabel();
 		
-		int value1 = new DiceManager(1).value;
-		int value2 = new DiceManager(2).value;
-		int value3 = new DiceManager(3).value;
-		int value4 = new DiceManager(4).value;
-		int value5 = new DiceManager(5).value;
-		int value6 = new DiceManager(6).value;
+		value1 = new DiceManager(1).value;
+		value2 = new DiceManager(2).value;
+		value3 = new DiceManager(3).value;
+		value4 = new DiceManager(4).value;
+		value5 = new DiceManager(5).value;
+		value6 = new DiceManager(6).value;
 
-		int value9 = new DiceManager(9).value;
-		int value10 = new DiceManager(10).value;
-		int value11 = new DiceManager(11).value;
-		int value12 = new DiceManager(12).value;
-		int value13 = new DiceManager(13).value;
-		int value14 = new DiceManager(14).value;
+		value9 = new DiceManager(9).value;
+		value10 = new DiceManager(10).value;
+		value11 = new DiceManager(11).value;
+		value12 = new DiceManager(12).value;
+		value13 = new DiceManager(13).value;
+		value14 = new DiceManager(14).value;
 		
 		btn1 = new ButtonInitialize(value1);
 		btn2 = new ButtonInitialize(value2);
@@ -70,6 +73,9 @@ public class HarfPointGrid extends JPanel {
 		btn4 = new ButtonInitialize(value4);
 		btn5 = new ButtonInitialize(value5);
 		btn6 = new ButtonInitialize(value6);
+		
+		int shokei = checkShokei();
+		shokeiL.setText(shokei + "/63");
 
 		btn9 = new ButtonInitialize(value9);
 		btn10 = new ButtonInitialize(value10);
@@ -111,5 +117,9 @@ public class HarfPointGrid extends JPanel {
 		add(btn14);
 		add(label15);
 		add(goukeiL);
+	}
+
+	private int checkShokei() {
+		return value1 + value2 + value3 + value4 + value5 + value6;
 	}
 }
