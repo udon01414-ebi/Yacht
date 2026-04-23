@@ -128,7 +128,8 @@ public class DiceManager {
 	        // Diceのフィールドに直接セットするためサブクラスで上書き
 	        Dice dice = new Dice() {
 	            @Override
-	            public int[] getDice() { return face; }
+				public int[] getDice() {
+					return face; }
 	        };
 	        int result = new DiceManager(dice, mode).value;
 	        String status = (result == expected) ? "OK" : "NG";

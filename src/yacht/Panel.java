@@ -12,59 +12,59 @@ import javax.swing.JPanel;
 
 public class Panel extends JPanel {
 
-    public Panel() {
-        setLayout(new BorderLayout());
+	public Panel() {
+		setLayout(new BorderLayout());
 
-        Dice dice = new Dice();
-        
-        JPanel centerContainer = new PointGrid(dice);
-       
-        DicePanel dicePanel = new DicePanel(dice);
-        dicePanel.setPreferredSize(new Dimension(600, 160));
+		Dice dice = new Dice();
 
-        // ボタン＋ラベルパネル
-        JPanel buttonPanel = new JPanel(new FlowLayout());
+		JPanel centerContainer = new PointGrid(dice);
 
-        JLabel countLabel = new JLabel("リロール残り: " + Dice.MAX_REROLL + "回");
+		DicePanel dicePanel = new DicePanel(dice);
+		dicePanel.setPreferredSize(new Dimension(600, 160));
 
-        // ダイスを振るボタン
-        JButton rollButton = new JButton("ダイスを振る");
-        rollButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dice.reroll(); // 全ダイスを振り直す
-                dicePanel.repaint();
-                ((PointGrid) centerContainer).pointUpdateDisplay();
-                countLabel.setText("リロール残り: " + Dice.MAX_REROLL + "回");
-            }
-        });
+		// ボタン＋ラベルパネル
+		JPanel buttonPanel = new JPanel(new FlowLayout());
 
-        // リロールボタン
-        JButton rerollButton = new JButton("リロール");
-        rerollButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (dice.canReroll()) {
-                    dice.reroll();
-                    ((PointGrid) centerContainer).pointUpdateDisplay();
-                    dicePanel.repaint();
-                    int remaining = Dice.MAX_REROLL - dice.getRerollCount();
-                    countLabel.setText("リロール残り: " + remaining + "回");
-                    if (!dice.canReroll()) {
-                        rerollButton.setEnabled(false);
-                    }
-                }
-            }
-        });
+		JLabel countLabel = new JLabel("リロール残り: " + Dice.MAX_REROLL + "回");
 
-        ((PointGrid) centerContainer).pointUpdateDisplay();
+		// ダイスを振るボタン
+		JButton rollButton = new JButton("ダイスを振る");
+		rollButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dice.reroll(); // 全ダイスを振り直す
+				dicePanel.repaint();
+				((PointGrid) centerContainer).pointUpdateDisplay();
+				countLabel.setText("リロール残り: " + Dice.MAX_REROLL + "回");
+			}
+		});
 
-        buttonPanel.add(rollButton);
-        buttonPanel.add(rerollButton);
-        buttonPanel.add(countLabel);
+		// リロールボタン
+		JButton rerollButton = new JButton("リロール");
+		rerollButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (dice.canReroll()) {
+					dice.reroll();
+					((PointGrid) centerContainer).pointUpdateDisplay();
+					dicePanel.repaint();
+					int remaining = Dice.MAX_REROLL - dice.getRerollCount();
+					countLabel.setText("リロール残り: " + remaining + "回");
+					if (!dice.canReroll()) {
+						rerollButton.setEnabled(false);
+					}
+				}
+			}
+		});
 
-        add(dicePanel, BorderLayout.NORTH);
-        add(centerContainer, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.SOUTH);  // ボタンを下部に追加
-    }
+		((PointGrid) centerContainer).pointUpdateDisplay();
+
+		buttonPanel.add(rollButton);
+		buttonPanel.add(rerollButton);
+		buttonPanel.add(countLabel);
+
+		add(dicePanel, BorderLayout.NORTH);
+		add(centerContainer, BorderLayout.CENTER);
+		add(buttonPanel, BorderLayout.SOUTH); // ボタンを下部に追加
+	}
 }
