@@ -57,7 +57,7 @@ public class Panel extends JPanel {
         buttonPanel.add(rerollButton);
         buttonPanel.add(countLabel);
 
-        JPanel centerContainer = new PointGrid();
+        JPanel centerContainer = new PointGrid(dice);
         JPanel southContainer = new JPanel(new GridLayout(1, 3));
 
         add(dicePanel, BorderLayout.NORTH);
