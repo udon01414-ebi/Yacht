@@ -6,6 +6,7 @@ public class Dice {
     private boolean[] selected;
     private int rerollCount = 0;
     public static final int MAX_REROLL = 2;
+    int teban = 0;
 
     public Dice() {
         diceFace = diceCycle();
@@ -27,6 +28,7 @@ public class Dice {
             selected[i] = false;
         }
         rerollCount = 0;
+        teban = teban == 0 ? 1 : 0;
     }
 
     public void reroll() {

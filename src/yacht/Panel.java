@@ -3,7 +3,6 @@ package yacht;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,6 +16,9 @@ public class Panel extends JPanel {
         setLayout(new BorderLayout());
 
         Dice dice = new Dice();
+        
+        JPanel centerContainer = new PointGrid(dice);
+       
         DicePanel dicePanel = new DicePanel(dice);
         dicePanel.setPreferredSize(new Dimension(600, 160));
 
@@ -32,6 +34,7 @@ public class Panel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 dice.reroll(); // 全ダイスを振り直す
                 dicePanel.repaint();
+                ((PointGrid) centerContainer).pointUpdateDisplay();
                 countLabel.setText("リロール残り: " + Dice.MAX_REROLL + "回");
             }
         });
@@ -43,6 +46,7 @@ public class Panel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (dice.canReroll()) {
                     dice.reroll();
+                    ((PointGrid) centerContainer).pointUpdateDisplay();
                     dicePanel.repaint();
                     int remaining = Dice.MAX_REROLL - dice.getRerollCount();
                     countLabel.setText("リロール残り: " + remaining + "回");
@@ -53,16 +57,14 @@ public class Panel extends JPanel {
             }
         });
 
+        ((PointGrid) centerContainer).pointUpdateDisplay();
+
         buttonPanel.add(rollButton);
         buttonPanel.add(rerollButton);
         buttonPanel.add(countLabel);
 
-        JPanel centerContainer = new PointGrid(dice);
-        JPanel southContainer = new JPanel(new GridLayout(1, 3));
-
         add(dicePanel, BorderLayout.NORTH);
         add(centerContainer, BorderLayout.CENTER);
-        add(southContainer, BorderLayout.SOUTH);
         add(buttonPanel, BorderLayout.SOUTH);  // ボタンを下部に追加
     }
 }

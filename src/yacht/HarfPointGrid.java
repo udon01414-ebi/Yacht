@@ -12,9 +12,10 @@ public class HarfPointGrid extends JPanel {
 	JLabel shokeiL = new JLabel("0/63");
 	JLabel bonusL = new JLabel("0");
 	JLabel goukeiL = new JLabel("0");
+	int player = 0;
 	
-	
-	HarfPointGrid(Dice dice) {
+	HarfPointGrid(Dice dice, int player) {
+		this.player = player;
 		setLayout(new GridLayout(15, 2));
 		setBorder(new EmptyBorder(10, 10, 10, 10));
 		
@@ -56,12 +57,24 @@ public class HarfPointGrid extends JPanel {
 				add(goukeiL);
 			}
 		}
-		
-		updateDisplay(dice);
+	}
+
+	private void initializeDisplay() {
+		for (int i = 0; i < 15; i++) {
+			if (i != 6 && i != 7 && i != 14) {
+				btns[i].setText("0");				
+			}
+		}
+		shokeiL.setText("0");
+		bonusL.setText("0");
+		goukeiL.setText("0");
 	}
 
 	public void updateDisplay(Dice dice) {
-		
+		if (dice.teban != player) {
+			initializeDisplay();
+			return;
+		}		
 		for (int i = 0; i < 6; i++) {
 			int val = new DiceManager(dice, i + 1).value;
 			btns[i].setText(String.valueOf(val));
