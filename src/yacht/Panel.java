@@ -30,8 +30,7 @@ public class Panel extends JPanel {
         rollButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dice.reroll(); 
-                dice.update();// 全ダイスを振り直す
+                dice.reroll(); // 全ダイスを振り直す
                 dicePanel.repaint();
                 countLabel.setText("リロール残り: " + Dice.MAX_REROLL + "回");
             }

@@ -20,24 +20,24 @@ public class HarfPointGrid extends JPanel {
 		
 		JLabel[] labels = new JLabel[15];
 		
-		labels[1] = new JLabel("エース");
-		labels[2] = new JLabel("デュース");
-		labels[3] = new JLabel("トレイ");
-		labels[4] = new JLabel("フォー");
-		labels[5] = new JLabel("ファイブ");
-		labels[6] = new JLabel("シックス");
+		labels[0] = new JLabel("エース");
+		labels[1] = new JLabel("デュース");
+		labels[2] = new JLabel("トレイ");
+		labels[3] = new JLabel("フォー");
+		labels[4] = new JLabel("ファイブ");
+		labels[5] = new JLabel("シックス");
 
-		labels[7] = new JLabel("小計");
-		labels[8] = new JLabel("ボーナス+35");
+		labels[6] = new JLabel("小計");
+		labels[7] = new JLabel("ボーナス+35");
 		
-		labels[9] = new JLabel("チョイス");
-		labels[10] = new JLabel("フォーダイス");
-		labels[11] = new JLabel("フルハウス");
-		labels[12] = new JLabel("S.ストレート");
-		labels[13] = new JLabel("B.ストレート");
-		labels[14] = new JLabel("ヨット");
+		labels[8] = new JLabel("チョイス");
+		labels[9] = new JLabel("フォーダイス");
+		labels[10] = new JLabel("フルハウス");
+		labels[11] = new JLabel("S.ストレート");
+		labels[12] = new JLabel("B.ストレート");
+		labels[13] = new JLabel("ヨット");
 		
-		labels[15] = new JLabel("総合得点");
+		labels[14] = new JLabel("総合得点");
 		
 		for (int i = 0; i < 15; i++) {
 			add(labels[i]);
