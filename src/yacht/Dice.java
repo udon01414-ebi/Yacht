@@ -50,3 +50,4 @@ public class Dice {
     public int getRerollCount() { return rerollCount; }
     public boolean canReroll() { return rerollCount < MAX_REROLL; }
 }
+

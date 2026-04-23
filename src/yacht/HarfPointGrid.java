@@ -61,22 +61,15 @@ public class HarfPointGrid extends JPanel {
 	}
 
 	public void updateDisplay(Dice dice) {
-		int shokei = 0;
 		
 		for (int i = 0; i < 6; i++) {
 			int val = new DiceManager(dice, i + 1).value;
 			btns[i].setText(String.valueOf(val));
-			shokei += val;
 		}
 		
 		for (int i = 8; i < 14; i++) {
 			int val = new DiceManager(dice, i + 1).value;
 			btns[i].setText(String.valueOf(val));
-		}
-		
-		shokeiL.setText(shokei + "/63");
-		if (shokei >= 63) {
-			bonusL.setText(String.valueOf(35));
 		}
 	}
 }
