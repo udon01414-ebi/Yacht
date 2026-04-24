@@ -2,7 +2,7 @@ package yacht;
 
 import javax.swing.JFrame;
 
-public class Game {		//画面描画のもと
+public class Game {		//画面描画のおおもと
 
 	public static void main(String[] args) {
 		Panel panel = new Panel();
