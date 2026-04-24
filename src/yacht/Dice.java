@@ -5,7 +5,6 @@ public class Dice {
 	private int[] diceFace;
 	private boolean[] selected;
 	private int rerollCount = 0;
-	public static final int MAX_REROLL = 2;
 
 	public Dice() {
 		diceFace = diceCycle();
@@ -30,7 +29,7 @@ public class Dice {
 	}
 
 	public void reroll() {
-		if (rerollCount >= MAX_REROLL)
+		if (rerollCount >= 2)
 			return;
 		for (int i = 0; i < 5; i++) {
 			if (selected[i]) {
@@ -63,7 +62,7 @@ public class Dice {
 	}
 
 	public boolean canReroll() {
-		return rerollCount < MAX_REROLL;
+		return rerollCount < 2;
 	}
 
 	public void rePaint() {

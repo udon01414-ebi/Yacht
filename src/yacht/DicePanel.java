@@ -114,7 +114,7 @@ public class DicePanel extends JPanel {
 		westGrid.updateDisplay(this);
 		eastGrid.updateDisplay(this);
 		rerollButton.setEnabled(true);
-		countLabel.setText("リロール残り: " + Dice.MAX_REROLL + "回");
+		countLabel.setText("リロール残り: " + 2 + "回");
 		String LR = teban == 0 ? "左" : "右";
 		tebanLabel.setText("　手番:" + LR + "プレイヤー　");
 		repaint();
