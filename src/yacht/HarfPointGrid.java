@@ -98,5 +98,30 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 				}
 			}
 		}
+		updateTotals();
 	}
+	
+	private void updateTotals() {	//小計、合計の集計
+		//小計のみ
+		int shokei = 0;
+		for(int i = 0; i < 6; i++) {
+			if(!btns[i].isEnabled()) {
+				shokei += Integer.parseInt(btns[i].getText());
+			}
+		}
+		
+		 // ボーナス（小計63以上で+35）
+        int bonus = (shokei >= 63) ? 35 : 0;
+        bonusL.setText(String.valueOf(bonus));
+
+        // 総合得点（確定済みの下段も含めて合計）
+        int goukei = shokei + bonus;
+        for (int i = 8; i < 14; i++) {
+            if (!btns[i].isEnabled()) {
+                goukei += Integer.parseInt(btns[i].getText());
+            }
+        }
+        goukeiL.setText(String.valueOf(goukei));
+    }
+	
 }
