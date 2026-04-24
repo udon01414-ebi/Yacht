@@ -82,8 +82,8 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 	//ボタン内の数字の更新
 	public void updateDisplay(DicePanel dicePanel) {
 		for (int i = 0; i < 14; i++) {
-			//ボタンがもう押されているor使われてないインデックスの6か7の時、何もしない
-			if (!btns[i].isEnabled() || i == 6 || i == 7) {
+			//インデックスが使われてない6か7or押されているボタンの時、何もしない
+			if (i == 6 || i == 7 || !btns[i].isEnabled()) {
 				continue;
 			}
 
