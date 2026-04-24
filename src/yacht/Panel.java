@@ -1,8 +1,10 @@
 package yacht;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -66,7 +68,12 @@ public class Panel extends JPanel {
 			}
 		});
 
-		JLabel tebanLabel = new JLabel("手番:左プレイヤー");
+		JLabel tebanLabel = new JLabel("　手番:左プレイヤー　");
+		tebanLabel.setFont(new Font("MS ゴシック", Font.PLAIN, 24));
+		tebanLabel.setOpaque(true);
+		tebanLabel.setBackground(Color.GRAY);
+		tebanLabel.setForeground(Color.WHITE);
+		dicePanel.setTebanLabel(tebanLabel);
 		westGrid.updateDisplay(dicePanel);
 		eastGrid.updateDisplay(dicePanel);
 

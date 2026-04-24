@@ -5,14 +5,16 @@ import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class DicePanel extends JPanel {
 
 	int teban = 0;
-	Dice dice; // データはDiceから取得
+	Dice dice;
 	private HarfPointGrid westGrid;
 	private HarfPointGrid eastGrid;
+	private JLabel tebanLabel;
 
 	public DicePanel(Dice dice) {
 		this.dice = dice;
@@ -108,6 +110,8 @@ public class DicePanel extends JPanel {
 		dice.reroll();
 		westGrid.updateDisplay(this);
 	    eastGrid.updateDisplay(this);
+	    String LR = teban == 0 ? "左" : "右";
+	    tebanLabel.setText("　手番:" + LR + "プレイヤー　");
 		repaint();
 		
 	}
@@ -115,5 +119,9 @@ public class DicePanel extends JPanel {
 	public void setGrids(HarfPointGrid westGrid, HarfPointGrid eastGrid) {
 		this.westGrid = westGrid;
 		this.eastGrid = eastGrid;
+	}
+
+	public void setTebanLabel(JLabel tebanLabel) {
+		this.tebanLabel = tebanLabel;
 	}
 }
