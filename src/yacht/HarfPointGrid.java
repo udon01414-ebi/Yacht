@@ -41,13 +41,12 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 
 		labels[14] = new JLabel("総合得点");
 
-		//得点表のボタンの作成と全体の描画
+		//得点表（ボタン）の作成と全体の描画
 		for (int i = 0; i < 15; i++) {
 			int ii = i;
 			add(labels[i]);
 
 			if (i < 6) {
-				//初期値は0
 				btns[i] = new JButton("0");
 				add(btns[i]);
 				btns[i].addActionListener(e -> actionListener(btns[ii], dicePanel, player));
@@ -65,7 +64,7 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 		}
 	}
 
-	//得点ボタンの挙動
+	//得点ボタンが押された時の挙動
 	private void actionListener(JButton btn, DicePanel dicePanel, int player) {
 		//手番の方の表じゃなかったら何もしない
 		if (dicePanel.teban != player) {
@@ -87,6 +86,7 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 				continue;
 			}
 
+			//手番の表か確認
 			if (dicePanel.teban == player) {
 				//さいころの値を計算して数字を更新
 				int val = new DiceManager(dicePanel.dice, i + 1).value;
