@@ -34,30 +34,30 @@ public class DiceManager {
 	
 	private int calcChoice(int[] d) {
 		int sum = 0;
-		for(int v : d) sum += v;
+		for(int v : d) sum += v;		//サイコロ合計
 		return sum;
 	}
 	
 	private int calcFourDice(int[] d) {
 		int[] count = new int[7];
-		for(int v : d) {
-			count[v]++;
+		for(int v : d) {				
+			count[v]++;				//配列に格納
 		}
 		for(int i = 1; i <= 6; i++) {
-			if(count[i] >= 4) return calcChoice(d);
+			if(count[i] >= 4) return calcChoice(d);		//判定＋サイコロの合計
 		}
 		return 0;
 	}
 	
 	private int calcFullHouse(int[] d) {
 		int[] count = new int[7];
-		for(int v : d) count[v]++;
+		for(int v : d) count[v]++;				//配列に格納
 		boolean hasThree = false, hasTwo = false;
-		for(int i = 1; i <= 6; i++) {
-			if(count[i] == 3) hasThree = true;
+		for(int i = 1; i <= 6; i++) {			
+			if(count[i] == 3) hasThree = true;	//同じ数字か判定
 			if(count[i] == 2) hasTwo = true;
 		}
-		return (hasThree && hasTwo) ? calcChoice(d) : 0;
+		return (hasThree && hasTwo) ? calcChoice(d) : 0;			// 2組＋3組なら合計を出す
 	}
 	
 	private int calcStraight(int[] d, int length) {
@@ -69,10 +69,10 @@ public class DiceManager {
 		int[] unique = Arrays.stream(sorted).distinct().toArray();
 		
 		int consecutive = 1;
-		for(int i = 1; i < unique.length; i++) {
-			if(unique[i] == unique[i - 1] + 1) {
+		for(int i = 1; i < unique.length; i++) {		
+			if(unique[i] == unique[i - 1] + 1) {		//連続してるか？
 				consecutive++;
-				if(consecutive >= length) return ( length == 4) ? 15 : 30;
+				if(consecutive >= length) return ( length == 4) ? 15 : 30;	//S or B
 			} else {
 				consecutive = 1;
 			}
