@@ -12,6 +12,14 @@ public class Game {		//画面描画のおおもと
 		frame.add(panel);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		
+		RulePanel rulePanel = new RulePanel();
+		JFrame ruleFrame = new JFrame("ルール");
+		ruleFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ruleFrame.setSize(700, 600);
+		ruleFrame.add(rulePanel);
+		ruleFrame.getComponentAt(50, 100);
+		ruleFrame.setVisible(true);
 	}
 
 }
