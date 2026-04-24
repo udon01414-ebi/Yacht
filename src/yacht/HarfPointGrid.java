@@ -92,8 +92,10 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 				int val = new DiceManager(dicePanel.dice, i + 1).value;
 				btns[i].setText(String.valueOf(val));
 			} else {
-				//手番の表じゃなかったら0にする
-				btns[i].setText("0");
+				//手番の表じゃない未確定ボタンを0にする
+				if (btns[i].isEnabled()) {
+					btns[i].setText("0");					
+				}
 			}
 		}
 	}

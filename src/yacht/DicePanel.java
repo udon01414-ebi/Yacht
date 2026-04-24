@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -15,6 +16,8 @@ public class DicePanel extends JPanel {
 	private HarfPointGrid westGrid;
 	private HarfPointGrid eastGrid;
 	private JLabel tebanLabel;
+	private JButton rerollButton;
+	private JLabel countLabel;
 
 	public DicePanel(Dice dice) {
 		this.dice = dice;
@@ -107,14 +110,15 @@ public class DicePanel extends JPanel {
 
 	public void resetTurn() {
 		dice.setRerollCount(0);
-		dice.reroll();
+		dice.roll();
 		westGrid.updateDisplay(this);
-	    eastGrid.updateDisplay(this);
-	    
-	    String LR = teban == 0 ? "左" : "右";
-	    tebanLabel.setText("　手番:" + LR + "プレイヤー　");
+		eastGrid.updateDisplay(this);
+		rerollButton.setEnabled(true);
+		countLabel.setText("リロール残り: " + Dice.MAX_REROLL + "回");
+		String LR = teban == 0 ? "左" : "右";
+		tebanLabel.setText("　手番:" + LR + "プレイヤー　");
 		repaint();
-		
+
 	}
 
 	public void setGrids(HarfPointGrid westGrid, HarfPointGrid eastGrid) {
@@ -124,5 +128,13 @@ public class DicePanel extends JPanel {
 
 	public void setTebanLabel(JLabel tebanLabel) {
 		this.tebanLabel = tebanLabel;
+	}
+
+	public void setRerollButton(JButton rerollButton) {
+		this.rerollButton = rerollButton;
+	}
+
+	public void setCountLabel(JLabel countLabel) {
+		this.countLabel = countLabel;
 	}
 }
