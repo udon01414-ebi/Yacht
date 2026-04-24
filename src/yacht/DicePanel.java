@@ -110,6 +110,7 @@ public class DicePanel extends JPanel {
 		dice.reroll();
 		westGrid.updateDisplay(this);
 	    eastGrid.updateDisplay(this);
+	    
 	    String LR = teban == 0 ? "左" : "右";
 	    tebanLabel.setText("　手番:" + LR + "プレイヤー　");
 		repaint();
