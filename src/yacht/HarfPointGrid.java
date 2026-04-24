@@ -8,13 +8,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class HarfPointGrid extends JPanel {
+	boolean[] kakutei = new boolean[15];
 	JButton btns[] = new JButton[15];
 	JLabel shokeiL = new JLabel("0/63");
 	JLabel bonusL = new JLabel("0");
 	JLabel goukeiL = new JLabel("0");
 	int player = 0;
 
-	HarfPointGrid(Dice dice, int player) {
+	HarfPointGrid(DicePanel dicePanel, int player) {
 		this.player = player;
 		setLayout(new GridLayout(15, 2));
 		setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -41,11 +42,13 @@ public class HarfPointGrid extends JPanel {
 		labels[14] = new JLabel("総合得点");
 
 		for (int i = 0; i < 15; i++) {
+			int ii = i;
 			add(labels[i]);
 
 			if (i < 6) {
 				btns[i] = new JButton("0");
 				add(btns[i]);
+				btns[i].addActionListener(e -> actionListener(btns[ii], dicePanel, player));
 			} else if (i == 6) {
 				add(shokeiL);
 			} else if (i == 7) {
@@ -53,36 +56,45 @@ public class HarfPointGrid extends JPanel {
 			} else if (i < 14) {
 				btns[i] = new JButton("0");
 				add(btns[i]);
+				btns[i].addActionListener(e -> actionListener(btns[ii], dicePanel, player));
 			} else {
 				add(goukeiL);
 			}
 		}
 	}
 
-	private void initializeDisplay() {
-		for (int i = 0; i < 15; i++) {
-			if (i != 6 && i != 7 && i != 14) {
-				btns[i].setText("0");
-			}
-		}
-		shokeiL.setText("0");
-		bonusL.setText("0");
-		goukeiL.setText("0");
-	}
-
-	public void updateDisplay(Dice dice) {
-		if (dice.teban != player) {
-			initializeDisplay();
+	private void actionListener(JButton btn, DicePanel dicePanel, int player) {
+		if (dicePanel.teban != player) {
 			return;
 		}
+		btn.setEnabled(false);
+		dicePanel.teban = dicePanel.teban == 1 ? 0 : 1;
+		dicePanel.resetTurn();
+	}
+
+	public void updateDisplay(DicePanel dicePanel) {
 		for (int i = 0; i < 6; i++) {
-			int val = new DiceManager(dice, i + 1).value;
-			btns[i].setText(String.valueOf(val));
+			if (!btns[i].isEnabled()) {
+				continue;
+			}
+			if (dicePanel.teban != player) {
+				btns[i].setText("0");
+			} else {
+				int val = new DiceManager(dicePanel.dice, i + 1).value;
+				btns[i].setText(String.valueOf(val));				
+			}
 		}
 
 		for (int i = 8; i < 14; i++) {
-			int val = new DiceManager(dice, i + 1).value;
-			btns[i].setText(String.valueOf(val));
+			if (!btns[i].isEnabled()) {
+				continue;
+			}
+			if (dicePanel.teban != player) {
+				btns[i].setText("0");
+			} else {
+				int val = new DiceManager(dicePanel.dice, i + 1).value;
+				btns[i].setText(String.valueOf(val));				
+			}
 		}
 	}
 }

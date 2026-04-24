@@ -5,13 +5,14 @@ import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class DicePanel extends JPanel {
 
-	private Dice dice; // データはDiceから取得
-	private JLabel countLabel;
+	int teban = 0;
+	Dice dice; // データはDiceから取得
+	private HarfPointGrid westGrid;
+	private HarfPointGrid eastGrid;
 
 	public DicePanel(Dice dice) {
 		this.dice = dice;
@@ -20,7 +21,6 @@ public class DicePanel extends JPanel {
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int[] diceFace = dice.getDice();
 				for (int i = 0; i < 5; i++) {
 					int x = 50 + i * 100;
 					int y = 50;
@@ -101,5 +101,19 @@ public class DicePanel extends JPanel {
 
 	private void drawDot(Graphics g, int x, int y) {
 		g.fillOval(x - 5, y - 5, 10, 10);
+	}
+
+	public void resetTurn() {
+		dice.setRerollCount(0);
+		dice.reroll();
+		westGrid.updateDisplay(this);
+	    eastGrid.updateDisplay(this);
+		repaint();
+		
+	}
+
+	public void setGrids(HarfPointGrid westGrid, HarfPointGrid eastGrid) {
+		this.westGrid = westGrid;
+		this.eastGrid = eastGrid;
 	}
 }
