@@ -1,5 +1,6 @@
 package yacht;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -72,6 +73,11 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 		}
 		//押されたらボタン無効
 		btn.setEnabled(false);
+		btn.setBackground(Color.LIGHT_GRAY);
+		
+		//集計を更新
+		updateTotals();
+		
 		//押されたら手番変える
 		dicePanel.teban = dicePanel.teban == 1 ? 0 : 1;
 		//手番変えた時の処理
@@ -109,6 +115,7 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 				shokei += Integer.parseInt(btns[i].getText());
 			}
 		}
+		 shokeiL.setText(shokei + "/63");
 		
 		 // ボーナス（小計63以上で+35）
         int bonus = (shokei >= 63) ? 35 : 0;
