@@ -83,7 +83,7 @@ public class DiceManager {
 		
 		private int calcYacht(int[] d) {
 			for(int i = 1; i < 5; i++) {
-				if(d[i] != d[0]) return 0;
+				if(d[i] != d[0]) return 0;		//同じじゃないなら0点
 			}
 			return 50;
 		}
