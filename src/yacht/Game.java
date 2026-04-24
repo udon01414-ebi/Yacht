@@ -14,7 +14,7 @@ public class Game {		//画面描画のおおもと
 		frame.setVisible(true);
 		
 		RulePanel rulePanel = new RulePanel();
-		JFrame ruleFrame = new JFrame("ルール");
+		JFrame ruleFrame = new JFrame("得点ルール");
 		ruleFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ruleFrame.setSize(700, 600);
 		ruleFrame.add(rulePanel);
