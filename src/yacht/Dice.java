@@ -2,7 +2,7 @@ package yacht;
 
 public class Dice {
 
-	private int[] diceFace;
+	int[] diceFace;
 	private boolean[] selected;
 	private int rerollCount = 0;
 

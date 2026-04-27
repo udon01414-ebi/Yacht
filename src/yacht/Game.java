@@ -1,6 +1,7 @@
 package yacht;
 
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 public class Game {		//画面描画のおおもと
 
@@ -15,9 +16,10 @@ public class Game {		//画面描画のおおもと
 		
 		RulePanel rulePanel = new RulePanel();
 		JFrame ruleFrame = new JFrame("得点ルール");
+		JScrollPane scrollPane = new JScrollPane(rulePanel);
 		ruleFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ruleFrame.setSize(700, 600);
-		ruleFrame.add(rulePanel);
+		ruleFrame.setSize(700, 900);
+		ruleFrame.add(scrollPane);
 		ruleFrame.getComponentAt(50, 100);
 		ruleFrame.setVisible(true);
 	}

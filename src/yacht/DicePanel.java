@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class DicePanel extends JPanel {
-
+	int xx, yy;
 	int teban = 0;
 	Dice dice;
 	private HarfPointGrid westGrid;
@@ -21,22 +21,73 @@ public class DicePanel extends JPanel {
 
 	public DicePanel(Dice dice) {
 		this.dice = dice;
+		xx = 50;
+		yy = 50;
 
-		// クリックで選択（DicePanelが担当）
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				for (int i = 0; i < 5; i++) {
-					int x = 50 + i * 100;
-					int y = 50;
-					if (e.getX() >= x && e.getX() <= x + 60 &&
-							e.getY() >= y && e.getY() <= y + 60) {
+					xx = 50 + i * 100;
+					if (e.getX() >= xx && e.getX() <= xx + 60 &&
+							e.getY() >= yy && e.getY() <= yy + 60) {
 						dice.toggleSelect(i);
 						repaint();
 					}
 				}
 			}
 		});
+	}
+
+	public DicePanel(int x, int y, int a) {
+		this.dice = new Dice();
+		this.xx = x;
+		this.yy = y;
+		for (int i = 0; i < 5; i++) {
+			switch(a) {
+			case 1:
+				this.dice.diceFace[i] = 1;
+				break;
+			case 2:
+				if (i != 4) {
+					this.dice.diceFace[i] = 5;
+				} else {
+					this.dice.diceFace[i] = 3;
+				}
+				break;
+			case 3:
+				if (i < 2) {
+					this.dice.diceFace[i] = 4;
+				} else {
+					this.dice.diceFace[i] = 6;
+				}
+				break;
+			case 4:
+				if (i < 4) {
+					this.dice.diceFace[i] = i + 1;
+				} else {
+					this.dice.diceFace[i] = 3;
+				}
+				break;
+			case 5:
+				this.dice.diceFace[i] = i + 1;
+				break;
+			case 6:
+				this.dice.diceFace[i] = 2;
+				break;
+			case 7:
+				if (i < 2) {
+					this.dice.diceFace[i] = 1;
+				} else if (i == 2) {
+					this.dice.diceFace[i] = 2;
+				} else if (i == 3) {
+					this.dice.diceFace[i] = 5;
+				} else {
+					this.dice.diceFace[i] = 6;
+				}
+				break;
+			}
+		}
 	}
 
 	@Override
@@ -46,14 +97,13 @@ public class DicePanel extends JPanel {
 		boolean[] selected = dice.getSelected();
 
 		for (int i = 0; i < 5; i++) {
-			int x = 50 + i * 100;
-			int y = 50;
+			int x = this.xx + i * 100;
 
 			if (selected[i]) {
 				g.setColor(Color.YELLOW);
-				g.fillRect(x - 4, y - 4, 68, 68);
+				g.fillRect(x - 4, yy - 4, 68, 68);
 			}
-			drawDice(g, x, y, diceFace[i]);
+			drawDice(g, x, yy, diceFace[i]);
 		}
 	}
 
