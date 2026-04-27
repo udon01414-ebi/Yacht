@@ -22,20 +22,20 @@ public class RulePanel extends JPanel{
 			+ "<br>例：フォーとシックスのフルハウス→4×2＋6×3＝26点"
 			+ "<br>※4×3＋6×2＝24点の場合もあり<html>"
 			);
-	JLabel label4 = new JLabel( "<html><br>●S.ストレート\"\n"
-			+ "<br>４つの目が数字順につながっていること\"\n"
-			+ "<br>例：エース〜フォー、トレイ〜シックス→15点<html>\"\n"
+	JLabel label4 = new JLabel( "<html><br>●S.ストレート\n"
+			+ "<br>４つの目が数字順につながっていること\n"
+			+ "<br>例：エース〜フォー、トレイ〜シックス→15点<html>\n"
 			);
-	JLabel label5 = new JLabel(	"<html><br>●B.ストレート\"\n"
-			+ "<br>５つの目が順に揃っていること\"\n"
-			+ "<br>エース〜ファイブ、デュース〜シックス→30点<html>\"\n"
+	JLabel label5 = new JLabel(	"<html><br>●B.ストレート\n"
+			+ "<br>５つの目が順に揃っていること\n"
+			+ "<br>エース〜ファイブ、デュース〜シックス→30点<html>\n"
 			);
-	JLabel label6 = new JLabel(	"<html><br>●ヨット\"\n"
+	JLabel label6 = new JLabel(	"<html><br>●ヨット\n"
 			+ "<br>同じ目が５つ揃うこと\"\n"
-			+ "<br>例：デュースが５個出た→50点<html>\"\n"
+			+ "<br>例：デュースが５個出た→50点<html>\n"
 			);
-	JLabel label7 = new JLabel(  "<html><br>●チョイス\"\n"
-			+ "<br>出た目の合計数がそのまま得点になること\"\n"
+	JLabel label7 = new JLabel(  "<html><br>●チョイス\n"
+			+ "<br>出た目の合計数がそのまま得点になること\n"
 			+ "<br>例：エース×2個、トレイ、ファイブ、シックス→16点<html>");
 	public RulePanel() {
 		setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
