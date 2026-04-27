@@ -41,7 +41,7 @@ public class Panel extends JPanel {
 		centerContainer.add(eastGrid);
 		
 		//さいころパネルのサイズ決定
-		dicePanel.setPreferredSize(new Dimension(600, 160));
+		dicePanel.setPreferredSize(new Dimension(600, 100));
 
 		//リロールのパネル作成
 		JPanel buttonPanel = new JPanel(new FlowLayout());

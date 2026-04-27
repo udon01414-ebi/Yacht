@@ -1,6 +1,7 @@
 package yacht;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -41,6 +42,7 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 		labels[13] = new JLabel("ヨット");
 
 		labels[14] = new JLabel("総合得点");
+		goukeiL.setFont(new Font("MS ゴシック", Font.PLAIN, 20));
 
 		//得点表（ボタン）の作成と全体の描画
 		for (int i = 0; i < 15; i++) {

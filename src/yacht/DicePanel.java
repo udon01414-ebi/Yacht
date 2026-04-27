@@ -21,16 +21,15 @@ public class DicePanel extends JPanel {
 
 	public DicePanel(Dice dice) {
 		this.dice = dice;
-		xx = 50;
-		yy = 50;
 
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				for (int i = 0; i < 5; i++) {
-					xx = 50 + i * 100;
-					if (e.getX() >= xx && e.getX() <= xx + 60 &&
-							e.getY() >= yy && e.getY() <= yy + 60) {
+					int x = 50 + i * 100;
+					int y = 20;
+					if (e.getX() >= x && e.getX() <= x + 60 &&
+							e.getY() >= y && e.getY() <= y + 60) {
 						dice.toggleSelect(i);
 						repaint();
 					}
@@ -39,12 +38,10 @@ public class DicePanel extends JPanel {
 		});
 	}
 
-	public DicePanel(int x, int y, int a) {
+	public DicePanel(int a) {
 		this.dice = new Dice();
-		this.xx = x;
-		this.yy = y;
 		for (int i = 0; i < 5; i++) {
-			switch(a) {
+			switch (a) {
 			case 1:
 				this.dice.diceFace[i] = 1;
 				break;
@@ -97,13 +94,14 @@ public class DicePanel extends JPanel {
 		boolean[] selected = dice.getSelected();
 
 		for (int i = 0; i < 5; i++) {
-			int x = this.xx + i * 100;
+			int x = 50 + i * 100;
+			int y = 20;
 
 			if (selected[i]) {
 				g.setColor(Color.YELLOW);
-				g.fillRect(x - 4, yy - 4, 68, 68);
+				g.fillRect(x - 4, y - 4, 68, 68);
 			}
-			drawDice(g, x, yy, diceFace[i]);
+			drawDice(g, x, y, diceFace[i]);
 		}
 	}
 

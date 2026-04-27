@@ -41,21 +41,21 @@ public class RulePanel extends JPanel{
 		setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 		
 		//説明用のさいころ描画
-		DicePanel dicePanel1 = new DicePanel(100, 10, 1);
-		DicePanel dicePanel2 = new DicePanel(100, 10, 2);
-		DicePanel dicePanel3 = new DicePanel(100, 10, 3);
-		DicePanel dicePanel4 = new DicePanel(100, 10, 4);
-		DicePanel dicePanel5 = new DicePanel(100, 10, 5);
-		DicePanel dicePanel6 = new DicePanel(100, 10, 6);
-		DicePanel dicePanel7 = new DicePanel(100, 10, 7);
+		DicePanel dicePanel1 = new DicePanel(1);
+		DicePanel dicePanel2 = new DicePanel(2);
+		DicePanel dicePanel3 = new DicePanel(3);
+		DicePanel dicePanel4 = new DicePanel(4);
+		DicePanel dicePanel5 = new DicePanel(6);
+		DicePanel dicePanel6 = new DicePanel(6);
+		DicePanel dicePanel7 = new DicePanel(7);
 
-		dicePanel1.setPreferredSize(new Dimension(100, 80));
-		dicePanel2.setPreferredSize(new Dimension(100, 80));
-		dicePanel3.setPreferredSize(new Dimension(100, 80));
-		dicePanel4.setPreferredSize(new Dimension(100, 80));
-		dicePanel5.setPreferredSize(new Dimension(100, 80));
-		dicePanel6.setPreferredSize(new Dimension(100, 80));
-		dicePanel7.setPreferredSize(new Dimension(100, 80));
+		dicePanel1.setPreferredSize(new Dimension(100, 90));
+		dicePanel2.setPreferredSize(new Dimension(100, 90));
+		dicePanel3.setPreferredSize(new Dimension(100, 90));
+		dicePanel4.setPreferredSize(new Dimension(100, 90));
+		dicePanel5.setPreferredSize(new Dimension(100, 90));
+		dicePanel6.setPreferredSize(new Dimension(100, 90));
+		dicePanel7.setPreferredSize(new Dimension(100, 90));
 		
 		label1.setFont(new Font("MS ゴシック", Font.PLAIN, 16));
 		label2.setFont(new Font("MS ゴシック", Font.PLAIN, 16));
