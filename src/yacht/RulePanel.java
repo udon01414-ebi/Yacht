@@ -53,6 +53,7 @@ public class RulePanel extends JPanel{
 			//解説文ラベルの設定
 			labels[i].setFont(font);
 			
+			//ラベルとさいころパネルの追加
 			add(labels[i]);
 			add(dicePanels[i]);
 		}
