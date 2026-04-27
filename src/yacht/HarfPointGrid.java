@@ -11,8 +11,8 @@ import javax.swing.border.EmptyBorder;
 
 public class HarfPointGrid extends JPanel { //得点表（半分）
 	JButton btns[] = new JButton[15];
-	JLabel shokeiL = new JLabel("0/63");	
-	JLabel bonusL = new JLabel("0");	
+	JLabel shokeiL = new JLabel("0/63");
+	JLabel bonusL = new JLabel("0");
 	JLabel goukeiL = new JLabel("0");
 	int player = 0;
 
@@ -42,7 +42,11 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 		labels[13] = new JLabel("ヨット");
 
 		labels[14] = new JLabel("総合得点");
-		goukeiL.setFont(new Font("MS ゴシック", Font.PLAIN, 20));
+		goukeiL.setFont(new Font("MS ゴシック", Font.PLAIN, 24));
+		goukeiL.setOpaque(true);
+		goukeiL.setBackground(Color.BLACK);
+		goukeiL.setForeground(Color.WHITE);
+		goukeiL.setHorizontalAlignment(JLabel.CENTER);
 
 		//得点表（ボタン）の作成と全体の描画
 		for (int i = 0; i < 15; i++) {
@@ -76,10 +80,10 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 		//押されたらボタン無効
 		btn.setEnabled(false);
 		btn.setBackground(Color.LIGHT_GRAY);
-		
+
 		//集計を更新
 		updateTotals();
-		
+
 		//押されたら手番変える
 		dicePanel.teban = dicePanel.teban == 1 ? 0 : 1;
 		//手番変えた時の処理
@@ -102,35 +106,35 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 			} else {
 				//手番の表じゃない未確定ボタンを0にする
 				if (btns[i].isEnabled()) {
-					btns[i].setText("0");					
+					btns[i].setText("0");
 				}
 			}
 		}
 		updateTotals();
 	}
-	
-	private void updateTotals() {	//小計、合計の集計
+
+	private void updateTotals() { //小計、合計の集計
 		//小計のみ
 		int shokei = 0;
-		for(int i = 0; i < 6; i++) {
-			if(!btns[i].isEnabled()) {
+		for (int i = 0; i < 6; i++) {
+			if (!btns[i].isEnabled()) {
 				shokei += Integer.parseInt(btns[i].getText());
 			}
 		}
-		 shokeiL.setText(shokei + "/63");
-		
-		 // ボーナス（小計63以上で+35）
-        int bonus = (shokei >= 63) ? 35 : 0;
-        bonusL.setText(String.valueOf(bonus));
+		shokeiL.setText(shokei + "/63");
 
-        // 総合得点（確定済みの下段も含めて合計）
-        int goukei = shokei + bonus;
-        for (int i = 8; i < 14; i++) {
-            if (!btns[i].isEnabled()) {
-                goukei += Integer.parseInt(btns[i].getText());
-            }
-        }
-        goukeiL.setText(String.valueOf(goukei));
-    }
-	
+		// ボーナス（小計63以上で+35）
+		int bonus = (shokei >= 63) ? 35 : 0;
+		bonusL.setText(String.valueOf(bonus));
+
+		// 総合得点（確定済みの下段も含めて合計）
+		int goukei = shokei + bonus;
+		for (int i = 8; i < 14; i++) {
+			if (!btns[i].isEnabled()) {
+				goukei += Integer.parseInt(btns[i].getText());
+			}
+		}
+		goukeiL.setText(String.valueOf(goukei));
+	}
+
 }

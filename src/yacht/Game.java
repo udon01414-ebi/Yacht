@@ -6,6 +6,7 @@ import javax.swing.JScrollPane;
 public class Game {		//画面描画のおおもと
 
 	public static void main(String[] args) {
+		//メインパネルのフレーム作り
 		Panel panel = new Panel();
 		JFrame frame = new JFrame("ヨット");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -13,7 +14,7 @@ public class Game {		//画面描画のおおもと
 		frame.add(panel);
 		frame.setLocation(700, 50);
 		frame.setVisible(true);
-		
+		//ルールパネルのフレーム作り
 		RulePanel rulePanel = new RulePanel();
 		JFrame ruleFrame = new JFrame("得点ルール");
 		JScrollPane scrollPane = new JScrollPane(rulePanel);

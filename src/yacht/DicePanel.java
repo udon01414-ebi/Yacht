@@ -43,7 +43,11 @@ public class DicePanel extends JPanel {
 		for (int i = 0; i < 5; i++) {
 			switch (a) {
 			case 1:
-				this.dice.diceFace[i] = 1;
+				if (i < 3) {
+					this.dice.diceFace[i] = 1;					
+				} else {
+					this.dice.diceFace[i] = 2;
+				}
 				break;
 			case 2:
 				if (i != 4) {
@@ -67,7 +71,7 @@ public class DicePanel extends JPanel {
 				}
 				break;
 			case 5:
-				this.dice.diceFace[i] = i + 1;
+				this.dice.diceFace[i] = i + 2;
 				break;
 			case 6:
 				this.dice.diceFace[i] = 2;
