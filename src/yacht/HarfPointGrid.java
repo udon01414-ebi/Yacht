@@ -88,6 +88,8 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 		dicePanel.teban = dicePanel.teban == 1 ? 0 : 1;
 		//手番変えた時の処理
 		dicePanel.resetTurn();
+		//ゲーム終了してるかどうか
+		dicePanel.checkGameFinished();
 	}
 
 	//ボタン内の数字の更新
@@ -137,4 +139,12 @@ public class HarfPointGrid extends JPanel { //得点表（半分）
 		goukeiL.setText(String.valueOf(goukei));
 	}
 
+	public boolean isFinished() {//すべてのボタンが埋まったか
+		for (int i = 0; i < 14; i++) {
+			if (i != 6 && i != 7 && btns[i].isEnabled()) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class DicePanel extends JPanel {
@@ -170,7 +171,25 @@ public class DicePanel extends JPanel {
 		String LR = teban == 0 ? "左" : "右";
 		tebanLabel.setText("　手番:" + LR + "プレイヤー　");
 		repaint();
-
+	}
+	
+	public void checkGameFinished() {
+		//もしゲームが終わってたら
+		if (westGrid.isFinished() && eastGrid.isFinished()) {
+			int westScore = Integer.parseInt(westGrid.goukeiL.getText());
+			int eastScore = Integer.parseInt(eastGrid.goukeiL.getText());
+			
+			//結果を表示
+			String result;
+			if (westScore > eastScore) {
+				result = "左プレイヤーの勝ち！";
+			} else if (eastScore > westScore) {
+				result = "右プレイヤーの勝ち！";
+			} else {
+				result = "引き分け！";
+			}
+			JOptionPane.showMessageDialog(this, result);
+		}
 	}
 
 	public void setGrids(HarfPointGrid westGrid, HarfPointGrid eastGrid) {
